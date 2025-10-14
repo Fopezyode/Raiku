@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raiku Blockspace Reservation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="main">
+  <header>
+    <img src="{{ url_for('static', filename='logo.webp') }}" class="logo" alt="Raiku Logo">
+    <h1 class="neon-text">Raiku Blockspace Reservation</h1>
+  </header>
+
+  <!-- Flash message display -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="message-container">
+        {% for category, message in messages %}
+          <div class="message {{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <div class="form-container">
+    <form method="POST" action="{{ url_for('reserve') }}">
+      <label>Reserve Your Blockspace:</label><br><br>
+      <input type="text" name="user" placeholder="Enter Name" required><br><br>
+      <input type="number" name="slot" placeholder="Block ID (0–9)" required><br><br>
+      <button type="submit" class="neon-button">Reserve</button>
+    </form>
+  </div>
+
+  <div class="block-list">
+    <h2>Current Block Status</h2>
+    <table>
+      <tr><th>Block</th><th>Status</th></tr>
+      {% for i, val in blocks %}
+      <tr>
+        <td>{{ i }}</td>
+        <td class="{{ 'taken' if val else 'available' }}">
+          {{ val if val else '🟢 Available' }}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</body>
+</html>

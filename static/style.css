@@ -1,0 +1,160 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  color: #00ff9f;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* --- Landing Page --- */
+body.landing {
+  background: radial-gradient(circle, #000 60%, #021 100%);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: bgPulse 4s infinite alternate;
+}
+
+.dragon-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 40px;
+}
+
+.dragon {
+  width: 100%;
+  filter: drop-shadow(0 0 25px #00ff9f);
+  animation: glowPulse 2s infinite alternate;
+}
+
+.enter-container {
+  text-align: center;
+}
+
+.enter-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background: black;
+  color: #00ff9f;
+  border: 2px solid #00ff9f;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  box-shadow: 0 0 15px #00ff9f;
+}
+
+.enter-button:hover {
+  background: #00ff9f;
+  color: black;
+  box-shadow: 0 0 30px #00ff9f;
+}
+
+.neon-text {
+  text-shadow: 0 0 10px #00ff9f, 0 0 20px #00ff9f, 0 0 40px #00ff9f;
+  font-size: 32px;
+  letter-spacing: 4px;
+}
+
+/* --- Main Page --- */
+body.main {
+  background: linear-gradient(180deg, #000 0%, #020 100%);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 120px;
+  filter: drop-shadow(0 0 20px #00ff9f);
+  margin-bottom: 20px;
+}
+
+.form-container {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px #00ff9f;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #00ff9f;
+  border-radius: 5px;
+  background: black;
+  color: #00ff9f;
+  width: 80%;
+}
+
+.neon-button {
+  background: black;
+  color: #00ff9f;
+  border: 2px solid #00ff9f;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ff9f;
+  transition: all 0.3s;
+}
+
+.neon-button:hover {
+  background: #00ff9f;
+  color: black;
+  box-shadow: 0 0 25px #00ff9f;
+}
+
+/* --- Animations --- */
+@keyframes bgPulse {
+  0% { background-color: #000; }
+  100% { background-color: #030; }
+}
+
+@keyframes glowPulse {
+  0% { filter: drop-shadow(0 0 10px #00ff9f); }
+  100% { filter: drop-shadow(0 0 40px #00ff9f); }
+}
+
+/* --- Flash Message Styles --- */
+.message-container {
+  position: fixed;
+  top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.message {
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  margin: 5px;
+  box-shadow: 0 0 15px #00ff9f;
+}
+
+.message.success {
+  background-color: rgba(0, 255, 100, 0.15);
+  border: 1px solid #00ff9f;
+  color: #00ff9f;
+}
+
+.message.error {
+  background-color: rgba(255, 0, 80, 0.15);
+  border: 1px solid #ff4d4d;
+  color: #ff4d4d;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

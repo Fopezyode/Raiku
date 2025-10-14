@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Raiku</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="landing">
+  <div class="dragon-container">
+    <img src="{{ url_for('static', filename='dragon.webp') }}" alt="Dragon" class="dragon">
+  </div>
+
+  <div class="enter-container">
+    <h1 class="neon-text">RAIKU BLOCKSPACE</h1>
+    <a href="{{ url_for('main') }}" class="enter-button">ENTER</a>
+  </div>
+</body>
+</html>
